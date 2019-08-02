@@ -75,20 +75,8 @@ export const constantRoutes = [
         meta: { title: 'Tree', icon: 'tree' }
       }
     ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
   }
+
 ]
 
 /**
@@ -161,6 +149,28 @@ export const asyncRoutes = [
       {
         path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
         meta: { title: 'External Link', icon: 'link', roles: ['admin'] }
+      }
+    ]
+  },
+
+  {
+    path: '/group',
+    component: Layout,
+    redirect: '/group/group-management',
+    name: 'Group',
+    meta: { title: '分组配置', icon: 'example', roles: ['operation'] },
+    children: [
+      {
+        path: 'group-management',
+        name: 'Group-Management',
+        component: () => import('@/views/group/group-management/index'),
+        meta: { title: '分组管理', icon: 'example', roles: ['operation'] }
+      },
+      {
+        path: 'add-group',
+        name: 'Add-Group',
+        component: () => import('@/views/group/add-group/index'),
+        meta: { title: '创建分组', icon: 'example', roles: ['operation'] }
       }
     ]
   },
